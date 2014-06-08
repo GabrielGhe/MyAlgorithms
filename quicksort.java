@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.util.Arrays;
 
 public class QuickSort {
 	
@@ -37,12 +37,10 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		int[] list = new int[]{1,4,6,7,2,3,7,8};
-		for(int i: list) System.out.print(i + " ");
-		System.out.println();
+		System.out.println(Arrays.toString(list) );
 		
 		quicksort(list);
-		for(int i: list) System.out.print(i + " ");
-		System.out.println();
+		System.out.println(Arrays.toString(list) );
 	}
 
 }
