@@ -6,7 +6,7 @@ public class BubbleSort {
 	public static List<Integer> bubbleSort(List<Integer> lst){
 		//go from last to second number
 		for(int passes= lst.size() -1; passes != 1; --passes){
-			//go from [0, passes[
+			//go from [0, passes[ to place largest at index passes
 			for(int i=0; i != passes; ++i){
 				if(lst.get(i) > lst.get(i+1)){
 					swap(lst, i, i+1);
