@@ -6,35 +6,36 @@ def makeListIntoHeap(lst):
     #go from ]0, size] inserting into heap
     for i in range(1, len(lst)):
         goodPos = False
-        index = i#upheap while it's not the root or at right place
+        index = i               #upheap while it's not the root or at right place
         
-        while (index != 0) and (not goodPos):#stop if (index == 0) or (goodPos)
+        while (index != 0) and (not goodPos):   #stop if (index == 0) or (goodPos)
             parent = int( (index - 1)/ 2)
-            if lst[index] > lst[parent]:#if parent is smaller, swap
+            if lst[index] > lst[parent]:        #if parent is smaller, swap
                 swap(lst, index, parent)
                 index = parent
             else:
                 goodPos = True
 
 def makeHeapIntoSortedList(lst):
-    for size in range(len(lst)-1, 0, -1): #remove all elements and downheap
-        swap(lst, 0, size)#swap first and last (removing biggest)
+    for size in range(len(lst)-1, 0, -1):   #remove all elements and downheap
+        swap(lst, 0, size)                  #swap first and last (removing biggest)
         goodPos = False
         inRange = True
         index = 0
         
-        while not goodPos and inRange: #downheap
+        while not goodPos and inRange:  #downheap
             leftChild = (2*index) + 1
             rightChild = (2*index) + 2
             
-            if leftChild > (size-1):
+            if leftChild > (size-1):    #has no children
                 inRange = False
-            elif rightChild > (size-1):
+            elif rightChild > (size-1): #has only left child
                 biggestChild = leftChild
-            else:
+            else:                       #has both children
                 biggestChild = leftChild if ( lst[leftChild] > lst[rightChild] ) else rightChild
             
-            if inRange: 
+            #if it has at least 1 child
+            if inRange:
                 if lst[index] < lst[biggestChild]:
                     swap(lst, index, biggestChild)
                     index = biggestChild
